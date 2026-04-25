@@ -16,7 +16,7 @@ Documentation: https://github.com/zwang-geog/AdjFind/blob/master/README.md
 The command-line tool supports three main modes:
 • Road Segmentation Mode: Determines which service points (e.g., hydrants) are closest to each road segment using network distance, and optionally splits roads into discrete distance categories for service area analysis.
 • Neighboring Points Mode: Identifies the nearest neighboring service points along a road network in each direction, calculating spacing distances between facilities like hydrants for regulatory compliance assessment.
-• Structure Access Mode: Computes shortest unobstructed paths from building corners to road networks, finding the least accessible points on buildings for emergency response planning and fire code compliance.
+• Structure Access Mode: Computes shortest unobstructed paths between building corners and road networks (e.g., assume fire engines can park anywhere along the provided road network) if road network is provided, or between building corners and access points (e.g., specific locations where fire engines can park) if road network is not provided. Moreover, it finds the least accessible points (a.k.a. furthest points) on buildings for emergency response planning and fire code compliance.
 
 
 Current build status
