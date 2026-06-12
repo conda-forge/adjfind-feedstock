@@ -13,17 +13,26 @@ Development: https://github.com/zwang-geog/AdjFind
 
 Documentation: https://github.com/zwang-geog/AdjFind/blob/master/README.md
 
-The command-line tool supports three main modes:
+The command-line tool supports five main modes:
 • Road Segmentation Mode: Determines which service points (e.g., hydrants) are closest to each road segment using network distance, and optionally splits roads into discrete distance categories for service area analysis.
 • Neighboring Points Mode: Identifies the nearest neighboring service points along a road network in each direction, calculating spacing distances between facilities like hydrants for regulatory compliance assessment.
 • Structure Access Mode: Computes shortest unobstructed paths between building corners and road networks (e.g., assume fire engines can park anywhere along the provided road network) if road network is provided, or between building corners and access points (e.g., specific locations where fire engines can park) if road network is not provided. Moreover, it finds the least accessible points (a.k.a. furthest points) on buildings for emergency response planning and fire code compliance.
+• Line-of-Sight Visibility Mode: Samples a road network at discrete intervals and performs pairwise line-of-sight checks between each road sample and point features (e.g., wildland fire ignition locations) using a digital elevation model, accounting for terrain obstruction along sight lines. Outputs dense distance and visibility matrices for downstream analysis such as optimal placement of fire detection resources.
+• Dissolve Adjacent Polygons Mode: Groups spatially adjacent or overlapping polygons into connected components and geometrically unions each component. Recommended as a preprocessing step before structure-access mode to merge fragmented building footprints into single polygons per building.
 
 
 Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>GitHub Actions</td>
+    <td>
+      <a href="https://github.com/conda-forge/adjfind-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/adjfind-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -37,31 +46,31 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
+              <td>osx_64_hdf51.14.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=26939&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adjfind-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adjfind-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_hdf51.14.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64</td>
+              <td>osx_64_hdf52</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=26939&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adjfind-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adjfind-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_hdf52" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_arm64</td>
+              <td>win_64_hdf51.14.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=26939&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adjfind-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adjfind-feedstock?branchName=main&jobName=win&configuration=win%20win_64_hdf51.14.6" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>win_64</td>
+              <td>win_64_hdf52</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=26939&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adjfind-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/adjfind-feedstock?branchName=main&jobName=win&configuration=win%20win_64_hdf52" alt="variant">
                 </a>
               </td>
             </tr>
