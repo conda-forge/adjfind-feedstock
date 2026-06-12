@@ -9,7 +9,7 @@ source:
   sha256: e5867d5c90080b64bbf8afd5351442f987df0047ade300604d713774ccb843cc
 
 build:
-  number: 0
+  number: 1
   script: |
     cmake -B build -S . ${CMAKE_ARGS}  # [unix]
     cmake -B build -S . %CMAKE_ARGS%  # [win]
